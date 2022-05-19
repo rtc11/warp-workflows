@@ -1,0 +1,13 @@
+author: Robin Tordly
+author_url: https://github.com/rtc11
+source_url: https://github.com/rtc11/warp-workflows
+
+name: K8s logs
+description: Pretty print k8s pod logs
+tags: [ "kubernetes", "k8s", "kubectl" ]
+
+command: k logs -l app={{app}} | jq -r '.["@timestamp"] + " " + .level + "\t" + .message'
+
+arguments:
+  - name: app
+    description: app name from the nais manifest
